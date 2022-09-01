@@ -1,0 +1,27 @@
+<RCC>
+    <qresource prefix="/">
+        <file>resources/icons/add.png</file>
+        <file>resources/icons/add_active.png</file>
+        <file>resources/icons/add_deactive.png</file>
+        <file>resources/icons/close.png</file>
+        <file>resources/icons/close_active.png</file>
+        <file>resources/icons/close_deactive.png</file>
+        <file>resources/icons/settings.png</file>
+        <file>resources/icons/settings_active.png</file>
+        <file>resources/icons/settings_deactive.png</file>
+        <file>resources/icons/left_expand.png</file>
+        <file>resources/icons/left_expand_active.png</file>
+        <file>resources/icons/left_expand_deactive.png</file>
+        <file>resources/icons/right_expand.png</file>
+        <file>resources/icons/right_expand_active.png</file>
+        <file>resources/icons/right_expand_deactive.png</file>
+        <file>resources/icons/graphicsColors/black.png</file>
+        <file>resources/icons/graphicsColors/blue.png</file>
+        <file>resources/icons/graphicsColors/green.png</file>
+        <file>resources/icons/graphicsColors/orange.png</file>
+        <file>resources/icons/graphicsColors/purple.png</file>
+        <file>resources/icons/graphicsColors/red.png</file>
+        <file>resources/icons/graphicsColors/opacity.png</file>
+        <file>resources/styles/main.qss</file>
+    </qresource>
+</RCC>

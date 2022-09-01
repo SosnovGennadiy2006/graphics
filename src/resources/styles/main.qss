@@ -1,0 +1,141 @@
+QScrollBar:vertical {
+    border: none;
+    background: rgba(0, 0, 0, 0);
+    width: 8px;
+    margin: 0;
+}
+QScrollBar::handle:vertical {
+    border: none;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 40);
+    min-height: 20px;
+}
+QScrollBar::handle:vertical:hover {
+    border: none;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 60);
+    min-height: 20px;
+}
+QScrollBar::add-line:vertical {
+    width: 0px;
+    height: 0px;
+    background: rgba(0, 0, 0, 0);
+}
+
+QScrollBar::sub-line:vertical {
+    width: 0px;
+    height: 0px;
+    background: rgba(0, 0, 0, 0);
+}
+QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+    width: 0px;
+    height: 0px;
+    background: rgba(0, 0, 0, 0);
+}
+
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+    background: none;
+}
+
+#areaSeparator
+{
+    color: #d8d8d8;
+}
+
+#graphicsSettings
+{
+    background: #f8f8f8;
+    border-bottom: 1px solid #d8d8d8;
+}
+
+#addButton, #settingsButton, #expandLeftButton, #expandRightButton
+{
+    border: none;
+    border-radius: 5px;
+}
+
+#addButton QLabel, #settingsButton QLabel, #expandLeftButton QLabel
+{
+    border: none;
+    border-radius: 5px;
+    background: #f8f8f8;
+}
+
+#addButton QLabel:hover, #settingsButton QLabel:hover, #expandLeftButton QLabel:hover
+{
+    background: #d8d8d8;
+}
+
+#expandRightButton QLabel
+{
+    border: none;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0);
+}
+
+#expandRightButton QLabel:hover
+{
+    background: rgba(0, 0, 0, 50);
+}
+
+#scrollArea
+{
+    border: none;
+    background: #fff;
+}
+
+#graphicsWidget
+{
+    background: #fff;
+}
+
+#deleteGraphics
+{
+    border: none;
+    border-radius: 5px;
+}
+
+#deleteGraphics QLabel
+{
+    border: none;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0);
+}
+
+#functionLineEdit
+{
+    border: none;
+    background: rgba(0, 0, 0, 0);
+}
+
+#graphicsItem[isSelected="false"]
+{
+    border-top: 1px solid #d8d8d8;
+    border-bottom: 1px solid #d8d8d8;
+    border-right: 1px solid #d8d8d8;
+}
+
+#graphicsItem[isSelected="true"]
+{
+    border-top: 1px solid #6e8fd2;
+    border-bottom: 1px solid #6e8fd2;
+    border-right: 1px solid #6e8fd2;
+}
+
+#graphicsItem[isSelected="false"] #colorPanel
+{
+    background: #e8e8e8;
+    border-right: 1px solid #d8d8d8;
+}
+
+#graphicsItem[isSelected="true"] #colorPanel
+{
+    background: #6e8fd2;
+    border-right: 1px solid #d8d8d8;
+}
+
+#colorButton
+{
+    border: none;
+    background: rgba(0, 0, 0, 0);
+}
