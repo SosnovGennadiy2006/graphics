@@ -55,6 +55,9 @@ public slots:
 
 signals:
     void expandButtonClicked();
+    void newGraphicCreated(const QString& graphicFunction, GraphicsColors color);
+    void graphicDeleted(qsizetype idx);
+    void graphicChanged(qsizetype idx, const QString& newFunction, GraphicsColors newColor);
 };
 
 

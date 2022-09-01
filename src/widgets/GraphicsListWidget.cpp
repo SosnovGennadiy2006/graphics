@@ -120,16 +120,25 @@ void GraphicsListWidget::addNewGraphic()
     graphics.push_back(graphic);
     graphic->show();
 
-    lastColor = static_cast<GraphicsColors>((static_cast<int>(lastColor) + 1) % 6);
+    lastColor = static_cast<GraphicsColors>((static_cast<int>(lastColor) + 1) % 7);
+    if (lastColor == GraphicsColors::none)
+    {
+        lastColor = GraphicsColors::red;
+    }
 
     renumberGraphics();
     repaintGraphics(graphics.size());
 
+    emit newGraphicCreated(graphic->getFunction(), graphic->getColor());
+
     connect(graphic, &GraphicsItem::deleted, this, [this, graphic](){
         qsizetype idx = graphics.indexOf(graphic);
+
         if (graphic->state) {
             return;
         }
+
+        emit graphicDeleted(idx);
 
         for (auto & _graphic : graphics)
         {
@@ -177,5 +186,10 @@ void GraphicsListWidget::addNewGraphic()
             }
             graphicsWidget->setFixedHeight(graphics.size() * GraphicsItem::fixedHeight);
         });
+    });
+
+    connect(graphic, &GraphicsItem::functionChanged, this, [this, graphic](){
+        qsizetype idx = graphics.indexOf(graphic);
+        emit graphicChanged(idx, graphic->getFunction(), graphic->getColor());
     });
 }

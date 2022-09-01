@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.20)
-project(GraphicsProject)
+project(src)
 
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_AUTOMOC ON)
@@ -12,11 +12,25 @@ find_package(Qt6 COMPONENTS
         Widgets
         REQUIRED)
 
-add_executable(GraphicsProject main.cpp MainWindow.cpp MainWindow.h widgets/GraphicsListWidget.cpp
+add_executable(src main.cpp MainWindow.cpp MainWindow.h widgets/GraphicsListWidget.cpp
         widgets/GraphicsListWidget.h widgets/other/StyleSheetsHelper.h widgets/PlotArea.cpp
         widgets/PlotArea.h widgets/buttons/IconsButton.cpp widgets/buttons/IconsButton.h
-        widgets/GraphicsItem.cpp widgets/GraphicsItem.h resources.qrc widgets/buttons/CustomButton.h)
-target_link_libraries(GraphicsProject
+        widgets/GraphicsItem.cpp widgets/GraphicsItem.h resources.qrc widgets/buttons/CustomButton.h
+        external/QCustomPlot/qcustomplot.cpp external/QCustomPlot/qcustomplot.h external/parser/muParser.cpp
+        external/parser/muParser.h external/parser/muParserBase.cpp external/parser/muParserBase.h external/parser/muParserBytecode.cpp
+        external/parser/muParserBytecode.h external/parser/muParserCallback.cpp external/parser/muParserCallback.h
+        external/parser/muParserComplex.cpp external/parser/muParserComplex.h external/parser/muParserDef.h
+        external/parser/muParserDLL.cpp external/parser/muParserDLL.h external/parser/muParserError.cpp
+        external/parser/muParserError.h external/parser/muParserFixes.h
+        external/parser/muParserInt.cpp
+        external/parser/muParserInt.h
+        external/parser/muParserStack.h
+        external/parser/muParserTest.cpp
+        external/parser/muParserTest.h
+        external/parser/muParserToken.h
+        external/parser/muParserTokenReader.cpp
+        external/parser/muParserTokenReader.h)
+target_link_libraries(src
         Qt::Core
         Qt::Gui
         Qt::Widgets

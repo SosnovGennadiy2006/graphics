@@ -12,6 +12,13 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow{parent}
 
     connect(graphics, &GraphicsListWidget::expandButtonClicked, this, &MainWindow::expandLeft);
     connect(plotWidget, &PlotArea::expandButtonClicked, this, &MainWindow::expandRight);
+
+    connect(graphics, &GraphicsListWidget::newGraphicCreated, \
+            plotWidget, &PlotArea::createNewGraphic);
+    connect(graphics, &GraphicsListWidget::graphicDeleted, \
+            plotWidget, &PlotArea::deleteGraphic);
+    connect(graphics, &GraphicsListWidget::graphicChanged, \
+            plotWidget, &PlotArea::changeGraphic);
 }
 
 void MainWindow::setupUI()

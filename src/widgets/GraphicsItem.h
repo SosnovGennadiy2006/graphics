@@ -13,16 +13,7 @@
 #include <QGraphicsOpacityEffect>
 #include "../widgets/buttons/IconsButton.h"
 #include "../widgets/buttons/CustomButton.h"
-
-enum GraphicsColors
-{
-    red = 0,
-    blue,
-    green,
-    orange,
-    purple,
-    black
-};
+#include "../widgets/other/StyleSheetsHelper.h"
 
 class GraphicsItem : public QWidget{
     Q_OBJECT
@@ -54,6 +45,8 @@ public:
     void setColor(GraphicsColors color);
     void setNumber(int newNumber);
 
+    [[nodiscard]] QString getFunction() const;
+
     [[nodiscard]] GraphicsColors getColor() const;
     [[nodiscard]] bool isGraphicsShown() const;
 
@@ -67,6 +60,7 @@ protected:
 signals:
     void selected();
     void deleted();
+    void functionChanged();
 
 public slots:
     void toggleGraphicsVisibility();

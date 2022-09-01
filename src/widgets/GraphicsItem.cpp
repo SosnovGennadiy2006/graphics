@@ -15,6 +15,9 @@ GraphicsItem::GraphicsItem(QWidget *parent) : QWidget{parent}
     connect(deleteGraphicsButton, &QPushButton::clicked, this, [this](){
         emit deleted();
     });
+    connect(functionLineEdit, &QLineEdit::textChanged, this, [this](const QString& val){
+        emit functionChanged();
+    });
 }
 
 void GraphicsItem::setupUI()
@@ -129,8 +132,17 @@ void GraphicsItem::setNumber(int newNumber)
     graphicsNumber->setText(QString::number(newNumber));
 }
 
+QString GraphicsItem::getFunction() const
+{
+    return functionLineEdit->text();
+}
+
 GraphicsColors GraphicsItem::getColor() const
 {
+    if (!_isShown)
+    {
+        return GraphicsColors::none;
+    }
     return _color;
 }
 
@@ -152,7 +164,9 @@ void GraphicsItem::toggleGraphicsVisibility()
     if (_isShown)
     {
         graphicsColorButton->setIcon(colorIcon);
+        emit functionChanged();
         return;
     }
     graphicsColorButton->setIcon(QPixmap(":/resources/icons/graphicsColors/opacity.png"));
+    emit functionChanged();
 }
