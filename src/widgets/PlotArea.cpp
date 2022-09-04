@@ -6,12 +6,6 @@
 
 PlotArea::PlotArea(QWidget* parent) : QWidget{parent}
 {
-    startX = -10;
-    startY = -4;
-    endX = 10;
-    endY = 4;
-    h = 0.2;
-
     setupUI();
 
     graphicsFunctions = QVector<QString>(0);
@@ -39,6 +33,11 @@ void PlotArea::setupUI()
     plotWidget = new QCustomPlot(this);
     plotWidget->setObjectName("plotWidget");
     plotWidget->setGeometry(0, 0, geometry().width(), geometry().height());
+    startX = -10;
+    startY = -10;
+    endX = 10;
+    endY = 10;
+    h = (endX - endY) / 2000;
     plotWidget->stackUnder(expandButton);
     plotWidget->xAxis->setRange(startX, endX);
     plotWidget->yAxis->setRange(startY, endY);
@@ -68,11 +67,10 @@ void PlotArea::repaintGraphics()
 
                 while (idx >= 0)
                 {
-                    function.replace(idx, 1, QString::number(j));
+                    function.replace(idx, 1, "(" + QString::number(j) + ")");
 
                     idx = function.indexOf("x");
                 }
-                qDebug() << function;
 
                 try
                 {
@@ -83,9 +81,7 @@ void PlotArea::repaintGraphics()
                 }
                 catch(mu::Parser::exception_type &e)
                 {
-                    dotsX = QVector<double>(0);
-                    dotsY = QVector<double>(0);
-                    break;
+                    continue;
                 }
             }
         }
@@ -98,7 +94,15 @@ void PlotArea::repaintGraphics()
 
 void PlotArea::resizeEvent(QResizeEvent *event)
 {
+    startX = static_cast<double>(geometry().size().width()) / event->size().width() * startX;
+    startY = static_cast<double>(-geometry().size().width()) / event->size().width() * startX;
+    endX = static_cast<double>(geometry().size().height()) / event->size().height() * startY;
+    endY = static_cast<double>(-geometry().size().height()) / event->size().height() * startY;
+    h = (endX - endY) / 2000;
+    plotWidget->xAxis->setRange(startX, endX);
+    plotWidget->yAxis->setRange(startY, endY);
     plotWidget->setGeometry(0, 0, event->size().width(), event->size().height());
+    repaintGraphics();
 }
 
 void PlotArea::hideExpandButton()

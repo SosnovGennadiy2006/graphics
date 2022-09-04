@@ -70,12 +70,12 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
 {
     border: none;
     border-radius: 5px;
-    background: rgba(0, 0, 0, 0);
+    background: #f8f8f8;
 }
 
 #expandRightButton QLabel:hover
 {
-    background: rgba(0, 0, 0, 50);
+    background: #d8d8d8;
 }
 
 #scrollArea
